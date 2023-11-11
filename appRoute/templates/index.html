@@ -1,0 +1,81 @@
+<!-- FILEPATH: /C:/Users/asus/CodeMusketeers/appRoute/templates/index.html -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Upload PDF</title>
+  </head>
+  <body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #48c6ef 0%, #6f86d6 100%);
+        }
+    
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+        }
+    
+        nav a {
+            color: #fff;
+            margin-right: 1em;
+            text-decoration: none;
+        }
+    
+        nav a:hover {
+            color: #ddd;
+        }
+    
+        h1 {
+            text-align: center;
+            padding: 1em;
+        }
+    
+        #upload-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 1em;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    
+        #upload-form input[type="file"] {
+            display: block;
+            margin-bottom: 1em;
+        }
+    
+        #upload-form input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    
+        #upload-form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="">client</a>
+        <a href="">help</a>
+    </nav>
+    <h1>Literacy</h1>
+    <form id="upload-form" action="/upload" method = "post" enctype="multipart/form-data">
+      <label for="pdf-file">Select a PDF file to upload:</label>
+      <input type="file" id="pdf-file" name="pdf-file">
+      <br>
+      <button type="submit">Upload</button>
+    </form>
+    <hr>
+    <h2>About</h2>
+    <p>Write something about your site here.</p>
+
+  </body>
+</html>

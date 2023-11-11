@@ -1,5 +1,8 @@
 import os
-from flask import Flask
+import subprocess
+from flask import Flask, app, request, render_template
+from werkzeug.utils import secure_filename
+
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
@@ -18,8 +21,19 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    @app.route('/hello')
-    def hello():
-        return 'Hello World!'
+    @app.route('/')
+    def home():
+        return render_template('index.html')
     
+    @app.route('/upload', methods=['POST'])
+    def upload_file():
+        if 'pdf-file' in request.files:
+            file = request.files['pdf-file']
+            file.save(file.filename)
+            # subprocess.run(["python", "main.py"], check=True)
+        return render_template("index.html", name = file.filename)
+            
     return app
+
+if __name__ == '__main__':   
+    app.run(debug=True)

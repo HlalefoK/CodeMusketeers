@@ -1,5 +1,12 @@
+import os
 import tabula
 from tabula import read_pdf
 
-dfs = read_pdf("C:/Users/asus/umnothoAI/statement.pdf", pages="all")
-tabula.convert_into("C:/Users/asus/umnothoAI/statement.pdf", "output.csv", output_format="csv", pages="all")
+directory = "C:\Users\asus\CodeMusketeers"
+
+for filename in os.listdir(directory):
+    if filename.endswith(".pdf"):
+        file_path = os.path.join(directory, filename)
+
+        dfs = read_pdf(file_path, pages="all")
+        tabula.convert_into(file_path, "output.csv", output_format="csv", pages="all")
